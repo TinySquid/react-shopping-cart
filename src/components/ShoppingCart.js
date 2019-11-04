@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+
+//Context
 import { CartContext } from '../contexts/CartContext';
 
 // Components
@@ -7,12 +9,14 @@ import Item from './ShoppingCartItem';
 const ShoppingCart = () => {
 	const { cart, setCart, removeItem } = useContext(CartContext);
 
+	//Add up all item prices to calculate total
 	const getCartTotal = () => {
 		return cart.reduce((acc, value) => {
 			return acc + (value.price * value.quantity);
 		}, 0).toFixed(2);
 	};
 
+	//Change item quantity
 	const setQuantity = (itemId, quantity) => {
 		setCart(cart.map(cartItem => {
 			if (cartItem.id === itemId) {
@@ -26,6 +30,7 @@ const ShoppingCart = () => {
 		}))
 	}
 
+	//Delete cart items
 	const clearCart = () => {
 		setCart([]);
 	}

@@ -19,10 +19,11 @@ function App() {
 	const [cart, setCart] = useLocalStorage('cart', []);
 
 	const addItem = item => {
-		//Only add unique items to cart
+		//When item is added first time, just add it.
 		if (cart.findIndex(cartItem => cartItem.id === item.id) === -1) {
 			setCart([...cart, item]);
 		} else {
+			//When item is already in cart, increment its 'quantity' property.
 			setCart(cart.map(cartItem => {
 				if (cartItem.id === item.id) {
 					return {
@@ -36,6 +37,7 @@ function App() {
 		}
 	};
 
+	//Returns new array with items that aren't subject to deletion
 	const removeItem = itemId => {
 		setCart(cart.filter(cartItem => cartItem.id !== itemId));
 	}
