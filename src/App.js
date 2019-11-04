@@ -22,6 +22,17 @@ function App() {
 		//Only add unique items to cart
 		if (cart.findIndex(cartItem => cartItem.id === item.id) === -1) {
 			setCart([...cart, item]);
+		} else {
+			setCart(cart.map(cartItem => {
+				if (cartItem.id === item.id) {
+					return {
+						...cartItem,
+						quantity: cartItem.quantity + 1
+					}
+				} else {
+					return cartItem;
+				}
+			}))
 		}
 	};
 

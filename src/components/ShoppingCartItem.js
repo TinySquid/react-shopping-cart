@@ -12,7 +12,7 @@ const Item = props => {
 				<div className="options">
 					<button onClick={() => props.removeItem(props.id)}>Remove from cart</button>
 					<label>Quantity
-					<select defaultValue="1" onChange={e => props.setQuantity(props.id, e.target.value)}>
+					<select defaultValue={props.quantity} onChange={e => props.setQuantity(props.id, e.target.value)}>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
