@@ -12,7 +12,7 @@ const Navigation = () => {
 			<NavLink to="/cart">
 				Cart <span>{
 					cart.reduce((acc, item) => {
-						return acc + item.quantity;
+						return acc + Number(item.quantity);
 					}, 0)}</span>
 			</NavLink>
 		</div>
