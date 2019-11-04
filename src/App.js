@@ -13,7 +13,14 @@ function App() {
 
 	const addItem = item => {
 		// add the given item to the cart
+		if (cart.findIndex(cartItem => cartItem.id === item.id) === -1) {
+			setCart([...cart, item]);
+		}
 	};
+
+	const removeItem = itemId => {
+		setCart(cart.filter(cartItem => cartItem.id !== itemId));
+	}
 
 	return (
 		<div className="App">
@@ -33,7 +40,7 @@ function App() {
 
 			<Route
 				path="/cart"
-				render={() => <ShoppingCart cart={cart} />}
+				render={() => <ShoppingCart cart={cart} removeItem={removeItem} />}
 			/>
 		</div>
 	);
