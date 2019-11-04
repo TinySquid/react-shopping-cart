@@ -26,6 +26,10 @@ const ShoppingCart = () => {
 		}))
 	}
 
+	const clearCart = () => {
+		setCart([]);
+	}
+
 	return (
 		<div className="shopping-cart">
 			{cart.map(item => (
@@ -34,7 +38,10 @@ const ShoppingCart = () => {
 
 			<div className="shopping-cart__checkout">
 				<p>Total: ${getCartTotal()}</p>
-				<button>Checkout</button>
+				<div className="buttons">
+					<button onClick={clearCart}>Clear Cart</button>
+					<button>Checkout</button>
+				</div>
 			</div>
 		</div>
 	);
