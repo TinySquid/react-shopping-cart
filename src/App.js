@@ -19,7 +19,7 @@ function App() {
 	const [cart, setCart] = useLocalStorage('cart', []);
 
 	const addItem = item => {
-		// add the given item to the cart
+		//Only add unique items to cart
 		if (cart.findIndex(cartItem => cartItem.id === item.id) === -1) {
 			setCart([...cart, item]);
 		}
@@ -32,7 +32,7 @@ function App() {
 	return (
 		<div className="App">
 			<ProductContext.Provider value={{ products, addItem }}>
-				<CartContext.Provider value={{ cart, removeItem }}>
+				<CartContext.Provider value={{ cart, setCart, removeItem }}>
 
 					<Navigation />
 

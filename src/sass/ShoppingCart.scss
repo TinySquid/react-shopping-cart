@@ -47,6 +47,16 @@
 				color: white;
 			}
 		}
+
+		.options {
+			width: 150px;
+			display: flex;
+			flex-direction: column;
+			label {
+				margin-left: 25px;	
+			}
+		}
+
 	}
 
 	&__checkout {
