@@ -28,7 +28,7 @@ function App() {
 				if (cartItem.id === item.id) {
 					return {
 						...cartItem,
-						quantity: cartItem.quantity + 1
+						quantity: (cartItem.quantity < 10 ? cartItem.quantity + 1 : 10)
 					}
 				} else {
 					return cartItem;
