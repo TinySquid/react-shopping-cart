@@ -47,6 +47,16 @@
 				color: white;
 			}
 		}
+
+		.options {
+			width: 150px;
+			display: flex;
+			flex-direction: column;
+			label {
+				margin-left: 25px;	
+			}
+		}
+
 	}
 
 	&__checkout {
@@ -65,7 +75,7 @@
 			border-radius: 5px;
 			padding: 10px;
 			color: white;
-
+			margin: 0 8px;
 			&:hover {
 				background: black;
 				color: white;
